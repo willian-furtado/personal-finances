@@ -48,14 +48,14 @@ input {
 
 }
 
-.titulo {
-    padding-bottom: 0px;
-    margin-top: 0px;
-    text-align: center;
-    border-left-width: 10px;
-    height: 40px;
-}
 
+.titulo {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 0px;
+    height: 35px;
+    border-left-width: 10px;
+}
 .test{
 margin-top: 0px;
 }
@@ -75,4 +75,25 @@ button {
 
 button:disabled {
     cursor: default;
+}
+
+.footer-content {
+    position: absolute;
+    bottom: 0;
+    background-color: #545658;
+    color: #FFF;
+    width: 100%;
+    height: 40px;    
+    text-align: center;
+    line-height: 100px;
+}
+
+.align-left{
+    width: 150px;
+    display: inline-block;
+}
+
+.margin{
+    margin-bottom: 8px;
+    background: #7d7f81
 }

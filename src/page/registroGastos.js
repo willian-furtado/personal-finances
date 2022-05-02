@@ -1,16 +1,18 @@
 import React from "react";
 import "../styles.css";
+import { useHistory } from "react-router-dom";
+import FunctionUtils from "../functionUtils";
 
-    var gastos=[];
+export default function Registro() {
 
-    const handleSubmit = (e) =>{
+    const history = useHistory();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData(e?.target)
-        const dados = Object.fromEntries(formData);
-        gastos.push(dados);
+        FunctionUtils.gastosCadastrados(e)
     };
 
-    const Registro = () => (
+    return (
         <div class="form-container">
             <div className={"titulo"}>
                 <h2 className={"titulo"}>Cadastrar Gastos</h2>
@@ -42,7 +44,7 @@ import "../styles.css";
                     class="form-field"
                     type="text"
                     placeholder="Valor gasto:"
-                    name="horas"
+                    name="valor"
                 />
 
                 <input
@@ -52,7 +54,7 @@ import "../styles.css";
                     placeholder="Tipo:"
                     name="tipo"
                 />
-                <button class="form-field" type="submit">
+                <button class="form-field" type="submit"  onClick={() => history.goBack()}>
                     Salvar
                 </button>
                 <button class="form-field" type="button">
@@ -61,5 +63,4 @@ import "../styles.css";
             </form>
         </div>
     );
-    
-    export default Registro;
+}

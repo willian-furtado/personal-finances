@@ -1,49 +1,53 @@
 import React from "react";
 import "../styles.css";
-import { Card } from "react-bootstrap";
+import FunctionUtils from '../functionUtils'
 
 export default function ListarTodos() {
+    const gastos = FunctionUtils.gastos
+    console.log(gastos)
+
+    const todosGastos = gastos.map(
+        (c) => 
+              <div className={"header-body"}>
+              <div class="row">
+                  <div class="col-xl-3 col-lg-6 margin">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div>
+                                      <div>
+                                          <label>{c.local}</label>
+                                      </div>
+                                      <div>
+                                          <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                              <i class="fas fa-chart-bar"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <label> {c.data}</label>
+                                  <div>
+                                      <label> {c.valor}</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    );
 
     return (
         <div class="form-container">
             <div className={"titulo"}>
                 <h2 className={"titulo"}>Todos os Gastos</h2>
             </div>
-
-            <form class="register-form">
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>Padaria A</Card.Title>
-                    <Card.Text>
-                        10-02-2022 - R$18,89
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>Padaria B</Card.Title>
-                    <Card.Text>
-                        11-03-2022 - R$25,10
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>Supermercado C</Card.Title>
-                    <Card.Text>
-                        12-04-2022 - R$75,40
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>Farmacia </Card.Title>
-                    <Card.Text>
-                        14-04-2022 - R$29,51
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </form>
+            <div class="main-content">
+                <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+                    <div class="container-fluid">
+                        {todosGastos}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
